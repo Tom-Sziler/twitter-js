@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Tom-Sziler/twitter-js#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "nunjucks": "^3.0.1"
   }
 }
