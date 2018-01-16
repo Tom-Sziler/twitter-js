@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Tom-Sziler/twitter-js#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
     "nunjucks": "^3.0.1"
   }
 }
