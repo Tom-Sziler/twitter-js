@@ -78,7 +78,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-  </body>
   <script src="/socket.io/socket.io.js"></script>
 <script>
   // Load the socket.io library above, then connect to the server.
@@ -92,7 +91,8 @@
   socket.on('newTweet', function (tweet) {
     console.log(tweet);
     alert('Refreshing... check the console...');
-    // some logic to add the new tweet to the DOM…
+  // document.getElementById('tweet-list').appendChild({ {tweet.content} });
   });
 </script>
+  </body>
 </html>

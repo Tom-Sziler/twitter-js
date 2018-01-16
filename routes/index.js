@@ -34,9 +34,9 @@ router.post('/tweets', urlencodedParser, function(req, res) {
   const name = req.body.name;
   const text = req.body.text;
   tweetBank.add(name, text);
-  res.redirect('/');
+  io.sockets.emit('newTweet', {name: name, content: text});
+  // res.redirect('/');
 });
-
 
 
 return router;
