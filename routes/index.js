@@ -5,12 +5,22 @@ const tweetBank = require('../tweetBank');
 
 router.get('/', function (req, res) {
   let tweets = tweetBank.list();
-  res.render( 'index', { tweets: tweets } );
+  res.render( 'index', { tweets: tweets, showForm: true} );
 });
-
 
 router.use(express.static('public'));
 
+router.get('/users/:name', function(req, res, next) {
+  const name = req.params.name;
+  let list = tweetBank.find( {name: name} );
+  res.render('index', {tweets: list, showForm: true});
+});
+
+router.get('/tweets/:id', function(req, res, next) {
+  const id = req.params.id;
+  let tweet = tweetBank.find( {id: id} );
+  res.render('index', {tweets: tweet, showForm: true} );
+});
 
 // router.get('/stylesheets/:file', (req, res, next) => {
 
@@ -23,7 +33,6 @@ router.use(express.static('public'));
 //    }
 //  };
 
-  
 // var fileName = req.params.file;
 
 // res.sendFile(fileName, options,  (err) =>{

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  
+
   <div class="page-header">
     <h1>Welcome to Twitter.js!</h1>
   </div>
@@ -12,14 +12,32 @@
       100 followers
     </div>
     <div class="col-md-9">
-    
+
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
+        <li>
+          <li id="name"><a href="/users/{{tweet.name}}"> {{tweet.name}}</a></li>
+          <li id="tweet-body">{{tweet.content}}</li>
+        </li>
       {% endfor %}
-      
+
+      {% if showForm %}
+      <form action="/tweets" method="POST">
+          <label for="name_field">Name:</label>
+          <input name="name" type="text" id="name_field" />
+
+          <label for="text_field">Text:</label>
+          <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+          <input type="submit" value="Submit" />
+        </form>
+      {% endif %}
+
     </div>
+
+
+
   </div>
-    
+
 {% endblock %}
 Raw
